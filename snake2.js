@@ -1,12 +1,12 @@
 canvas = document.getElementById("mycanvas");
 
-W = canvas.width = 650;
-H = canvas.height = 650;
+W = canvas.width = 600;
+H = canvas.height = 600;
 
 
 // pen  = canvas.getContext('2d');
 pen = canvas.getContext('2d');
-cs = 54.5
+cs = 52
 score = 0
 food = getRandomfood()
 
