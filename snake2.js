@@ -9,13 +9,13 @@ pen = canvas.getContext('2d');
 cs = 54.5
 score = 0
 food = getRandomfood()
+food_img = new Image()
+food_img.src = "apple.png"
+trophy_img = new Image()
+trophy_img.src = "trophy.png"
 
 function init(){
 
-  food_img = new Image()
-  food_img.src = "apple.png"
-  trophy_img = new Image()
-  trophy_img.src = "trophy.png"
   snake = {
       init_len : 3,
       cells : [],
@@ -32,14 +32,14 @@ function init(){
         pen.fillRect(this.cells[i].x*cs,this.cells[i].y*cs , cs-2.5,cs-2.5)
     }
   },
-   checkSnake : function(){
+  checkSnake : function(){
     for(let i=1;i<this.cells.length;i++){
       if(this.cells[i].x==this.cells[0].x && this.cells[i].y==this.cells[0].y){
         return true
       }
     }
     return false
-   },
+  },
   updateSnake : function(e){
 
     headX = this.cells[0].x
@@ -47,7 +47,7 @@ function init(){
     tailX = this.cells[this.cells.length -1].x
     tailY = this.cells[this.cells.length -1].y
 
-    if(headX *cs>=W || headX<0||headY*cs>=H ||headY<0 || this.checkSnake() ){
+    if(headX *cs>=W || headX<0||headY*cs>=H ||headY<0 || this.checkSnake()){
         clearInterval(f)
         alert("Game Over :(")
     }
@@ -129,6 +129,12 @@ function game_loop(){
   draw()
   update()
 }
-
-init()
-f = setInterval(game_loop,115)
+// start = false
+function g(){
+  start()
+}
+function start(){
+  init()
+  f = setInterval(game_loop,115)
+}
+document.addEventListener('click',g)
