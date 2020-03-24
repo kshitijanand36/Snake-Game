@@ -123,4 +123,4 @@ function game_loop(){
 }
 
 init()
-f = setInterval(game_loop,100)
+f = setInterval(game_loop,115)
