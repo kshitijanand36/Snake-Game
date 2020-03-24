@@ -50,6 +50,7 @@ function init(){
     if(headX *cs>=W || headX<0||headY*cs>=H ||headY<0 || this.checkSnake()){
         clearInterval(f)
         alert("Game Over :(")
+        score = 0 
     }
 
     if(food.x==headX &&food.y ==headY){
