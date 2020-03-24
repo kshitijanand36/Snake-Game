@@ -17,7 +17,7 @@ function init(){
   trophy_img = new Image()
   trophy_img.src = "trophy.png"
   snake = {
-      init_len : 4,
+      init_len : 3,
       cells : [],
       direction : 'right',
 
@@ -32,6 +32,14 @@ function init(){
         pen.fillRect(this.cells[i].x*cs,this.cells[i].y*cs , cs-2.5,cs-2.5)
     }
   },
+   checkSnake : function(){
+    for(let i=1;i<this.cells.length;i++){
+      if(this.cells[i].x==this.cells[0].x && this.cells[i].y==this.cells[0].y){
+        return true
+      }
+    }
+    return false
+   },
   updateSnake : function(e){
 
     headX = this.cells[0].x
@@ -39,7 +47,7 @@ function init(){
     tailX = this.cells[this.cells.length -1].x
     tailY = this.cells[this.cells.length -1].y
 
-    if(headX *cs>=W || headX<0||headY*cs>=H ||headY<0 || (headX==tailX && headY==tailY)){
+    if(headX *cs>=W || headX<0||headY*cs>=H ||headY<0 || this.checkSnake() ){
         clearInterval(f)
         alert("Game Over :(")
     }
