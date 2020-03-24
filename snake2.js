@@ -49,7 +49,7 @@ function init(){
 
     if(headX *cs>=W || headX<0||headY*cs>=H ||headY<0 || this.checkSnake()){
         clearInterval(f)
-        alert("Game Over :(")
+        alert("Game Over :( . Your score is " + score )
         score = 0 
     }
 
