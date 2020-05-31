@@ -1,0 +1,26 @@
+#mycanvas{
+ /* height :800px;
+ width :1100px; */
+ background-image: url("bg.png") ;
+ border : 20px solid green;
+}
+
+.heading{
+  /* font-family: 'Overpass', sans-serif; */
+
+  color : #00005c ;
+   font-size : 40px;
+
+   font-family: 'Overpass', sans-serif;
+}
+
+body{
+  background-color : #d4f3ef;
+}
+
+.head2{
+
+  font-size: 30px;
+  color: #9c5518;
+  font-family: 'Caveat', cursive;
+}
