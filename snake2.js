@@ -3,8 +3,11 @@ canvas = document.getElementById("mycanvas");
 W = canvas.width = 650;
 H = canvas.height = 650;
 
+ mySound = new sound("bounce.mp3");
 
-// pen  = canvas.getContext('2d');
+ mysound2 = new sound("score.mp3")
+
+
 pen = canvas.getContext('2d');
 cs = 54.5
 score = 0
@@ -28,7 +31,7 @@ function init(){
   },
   drawSnake : function(){
     for(let i=0;i<this.cells.length;i++){
-        pen.fillStyle = "Indigo";
+        pen.fillStyle = "Black";
         pen.fillRect(this.cells[i].x*cs,this.cells[i].y*cs , cs-2.5,cs-2.5)
     }
   },
@@ -49,12 +52,16 @@ function init(){
 
     if(headX *cs>=W || headX<0||headY*cs>=H ||headY<0 || this.checkSnake()){
         clearInterval(f)
+        // myMusic.stop()
+        mySound.play()
         alert("Game Over :( . Your score is " + score )
-        score = 0 
+        score = 0
     }
 
     if(food.x==headX &&food.y ==headY){
+      mysound2.stop()
       food = getRandomfood()
+      mysound2.play()
       score++
     }
     else{
@@ -130,12 +137,29 @@ function game_loop(){
   draw()
   update()
 }
-// start = false
+
 function g(){
   start()
 }
+
+function sound(src) {
+  this.sound = document.createElement("audio")
+  this.sound.src = src
+  this.sound.setAttribute("preload", "auto")
+  this.sound.setAttribute("controls", "none")
+  this.sound.style.display = "none"
+  document.body.appendChild(this.sound)
+  this.play = function(){
+    this.sound.play()
+  }
+  this.stop = function(){
+    this.sound.pause()
+  }
+}
+
 function start(){
   init()
+
   f = setInterval(game_loop,115)
 }
 document.addEventListener('click',g)
