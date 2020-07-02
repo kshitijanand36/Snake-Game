@@ -6,7 +6,7 @@ H = canvas.height = 650;
  mySound = new sound("bounce.mp3");
 
  mysound2 = new sound("score.mp3")
-mysound2.vol = 0.2;
+mysound2.volume = 0.2;
 
 
 pen = canvas.getContext('2d');
