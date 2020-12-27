@@ -56,6 +56,7 @@ function init(){
         // myMusic.stop()
         mySound.play()
         alert("Game Over :( . Your score is " + score )
+       first_time = true;
         score = 0
     }
 
@@ -164,4 +165,16 @@ function start(){
 
   f = setInterval(game_loop,115)
 }
-document.addEventListener('click',g)
+var first_time = true;
+
+
+document.addEventListener('click',function(){
+
+  if(first_time){
+    g()
+
+  }
+
+  first_time = false;
+
+});
