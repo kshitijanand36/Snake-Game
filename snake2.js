@@ -29,6 +29,7 @@ function init(){
     for (let i =this.init_len;i>0;i--){
       this.cells.push({x : i, y: 0})
     }
+   
   },
   drawSnake : function(){
     for(let i=0;i<this.cells.length;i++){
